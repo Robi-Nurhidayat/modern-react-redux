@@ -14,7 +14,14 @@ const root = ReactDOM.createRoot(el);
 // 4) Create a component
 
 function App() {
-  return <h1> {new Date().toLocaleTimeString()} </h1>;
+  return (
+    <input
+      type="number"
+      min={5}
+      style={{ border: "3px solid red" }}
+      placeholder={"angka"}
+    />
+  );
 }
 
 // 5) Show the component on the screen
