@@ -14,14 +14,7 @@ const root = ReactDOM.createRoot(el);
 // 4) Create a component
 
 function App() {
-  return (
-    <input
-      type="number"
-      min={5}
-      style={{ border: "3px solid red" }}
-      placeholder={"angka"}
-    />
-  );
+  return <input placeholder="hai ther" />;
 }
 
 // 5) Show the component on the screen
