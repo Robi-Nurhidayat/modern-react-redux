@@ -16,7 +16,9 @@ class App extends React.Component {
     );
   }
 
-  render() {
+  // note: jangan banyak banyak menarut logika di metode render
+  // oleh karena itu sebaiknya disimpen dengan menggunakan metode helper
+  renderComponent() {
     if (!this.state.errorMessage && this.state.lat) {
       return <SeasonsDisplay lat={this.state.lat} />;
     }
@@ -26,6 +28,10 @@ class App extends React.Component {
     }
 
     return <Spinner message="Please accept location request" />;
+  }
+
+  render() {
+    return <div className="border red">{this.renderComponent()}</div>;
   }
 }
 
