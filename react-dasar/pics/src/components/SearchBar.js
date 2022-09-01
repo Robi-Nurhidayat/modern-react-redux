@@ -6,10 +6,25 @@ class SearchBar extends React.Component {
     term: "",
   };
 
-  onFormSubmit(event) {
+  // bentuk sebenarnya dari fungsi dibawah adalah
+  // onFormSubmit(event) {
+  //   event.preventDefault();
+  //   console.log(this.state.term);
+  // }
+
+  // onFormSubmit = function(event) {
+  //   event.preventDefault();
+  //   console.log(this.state.term);
+  // }
+
+  // untuk mengatasi error Cannot read properties of undefined (reading 'state')
+  // pada fungsi diatas dengan menggunakan arrow function
+
+  onFormSubmit = (event) => {
     event.preventDefault();
-    console.log(this.state.term);
-  }
+
+    this.props.onSearchSubmit(this.state.term);
+  };
   render() {
     return (
       <div className="ui segment">
