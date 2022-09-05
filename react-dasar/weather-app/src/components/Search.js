@@ -1,13 +1,23 @@
 import React from "react";
 
 class Search extends React.Component {
+  state = {
+    city: "",
+  };
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.props.onSearch(this.state.city);
+  };
+
   render() {
     return (
       <div className="container mx-auto">
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <input
             type="text"
             className="form-input px-4 py-3 rounded-full border-2"
+            onChange={(e) => this.setState({ city: e.target.value })}
           />
           <button
             type="submit"
