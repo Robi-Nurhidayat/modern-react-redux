@@ -1,11 +1,18 @@
 import React from "react";
-import SeacrhBar from "./SearchBar";
+import SearchBar from "./SearchBar";
 
 class App extends React.Component {
+  state = {
+    movies: [],
+  };
+
+  onSearchInput = (movie) => {
+    console.log(movie);
+  };
   render() {
     return (
       <div className="container mt-1">
-        <SeacrhBar />
+        <SearchBar onSearchInput={this.onSearchInput} />
       </div>
     );
   }

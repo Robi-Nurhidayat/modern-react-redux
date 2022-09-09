@@ -1,7 +1,7 @@
 import React from "react";
 import "./SearchBar.css";
 
-class SeacrhBar extends React.Component {
+class SearchBar extends React.Component {
   state = {
     term: "",
   };
@@ -13,7 +13,7 @@ class SeacrhBar extends React.Component {
   onSubmitInput = (e) => {
     e.preventDefault();
 
-    console.log(this.state.term);
+    this.props.onSearchInput(this.state.term);
     this.setState({ term: "" });
   };
   render() {
@@ -27,9 +27,7 @@ class SeacrhBar extends React.Component {
               value={this.state.term}
               onChange={this.onChangeInput}
             />
-            <button type="submit" className="btn btn-primary">
-              Search
-            </button>
+            <button className="btn btn-primary">Search</button>
           </div>
         </form>
       </div>
@@ -37,4 +35,4 @@ class SeacrhBar extends React.Component {
   }
 }
 
-export default SeacrhBar;
+export default SearchBar;
