@@ -1,0 +1,4 @@
+.input__col {
+  display: flex;
+  column-gap: 10px;
+}
