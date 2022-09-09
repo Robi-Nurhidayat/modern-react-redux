@@ -7,8 +7,7 @@ const VideoList = ({ videos }) => {
   });
   return (
     <div>
-      {renderedList}
-      test
+      <ul className="list-group">{renderedList}</ul>
     </div>
   );
 };
