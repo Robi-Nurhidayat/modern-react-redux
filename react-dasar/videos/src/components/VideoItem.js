@@ -8,7 +8,7 @@ const VideoItem = ({ video, onVideoSelect }) => {
         className="list-group-item video-item"
         onClick={() => onVideoSelect(video)}
       >
-        <img src={video.snippet.thumbnails.medium.url} />
+        <img alt="thumbnail" src={video.snippet.thumbnails.medium.url} />
         <h1>{video.snippet.title}</h1>
       </li>
     </div>

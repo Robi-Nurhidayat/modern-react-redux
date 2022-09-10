@@ -14,8 +14,15 @@ class App extends React.Component {
       },
     });
 
-    this.setState({ videos: response.data.items });
+    this.setState({
+      videos: response.data.items,
+      videoSelect: response.data.items[0],
+    });
   };
+
+  componentDidMount() {
+    this.onTermSubmit("gta");
+  }
 
   onVideoSelect = (video) => {
     this.setState({ videoSelect: video });
