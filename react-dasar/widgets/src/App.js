@@ -18,7 +18,8 @@ const items = [
 function App() {
   return (
     <div>
-      <Accordion />
+      <br />
+      <Accordion items={items} />
     </div>
   );
 }
