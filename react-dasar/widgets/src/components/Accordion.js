@@ -6,12 +6,6 @@ const Accordion = ({ items }) => {
     setActiveIndex(index);
   };
 
-  const [count, setCount] = useState(0);
-
-  const handleCount = () => {
-    setCount(count + 1);
-  };
-
   const renderedItem = items.map((item, index) => {
     const active = activeIndex === index ? "active" : "";
     return (
@@ -29,8 +23,6 @@ const Accordion = ({ items }) => {
   return (
     <div className="ui styled accordion">
       {renderedItem} <h1>{activeIndex}</h1>
-      <button onClick={handleCount}>Klik</button>
-      <h1>Curren number :{count}</h1>
     </div>
   );
 };

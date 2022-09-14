@@ -1,4 +1,5 @@
 import Accordion from "./components/Accordion";
+import Search from "./components/Search";
 
 const items = [
   {
@@ -17,9 +18,8 @@ const items = [
 
 function App() {
   return (
-    <div>
-      <br />
-      <Accordion items={items} />
+    <div className="ui container">
+      <Search />
     </div>
   );
 }
