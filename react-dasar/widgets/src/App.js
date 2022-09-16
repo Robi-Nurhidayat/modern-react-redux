@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Accordion from "./components/Accordion";
 import DropDown from "./components/Dropdown";
 import Search from "./components/Search";
@@ -32,9 +33,15 @@ function App() {
       value: "blue",
     },
   ];
+  const [selected, setSelected] = useState(options[0]);
+
   return (
     <div className="ui container">
-      <DropDown options={options} />
+      <DropDown
+        selected={selected}
+        onSetSelected={setSelected}
+        options={options}
+      />
     </div>
   );
 }
