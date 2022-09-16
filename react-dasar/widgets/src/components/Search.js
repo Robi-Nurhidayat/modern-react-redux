@@ -3,9 +3,18 @@ import axios from "axios";
 
 const Search = () => {
   const [term, setTerm] = useState("programing");
+  const [tempTerm, setTempTerm] = useState(term);
   const [result, setResult] = useState([]);
 
-  console.log(result);
+  useEffect(() => {
+    const timerId = setTimeout(() => {
+      setTempTerm(term);
+    }, 2000);
+
+    return () => {
+      clearTimeout(timerId);
+    };
+  }, [term]);
 
   useEffect(() => {
     const search = async () => {
@@ -22,7 +31,7 @@ const Search = () => {
       setResult(data.query.search);
     };
     search();
-  }, [term]);
+  }, [tempTerm]);
 
   const renderedResult = result.map((result) => {
     return (
