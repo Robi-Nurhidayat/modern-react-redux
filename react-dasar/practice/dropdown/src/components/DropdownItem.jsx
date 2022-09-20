@@ -1,19 +1,29 @@
 import React from "react";
 import { Dropdown } from "react-bootstrap";
 
-const DropdownItem = () => {
+const DropdownItem = ({ options, selected, setSelected }) => {
+  const renderedItem = options.map((val) => {
+    if (selected.label === val.label) {
+      return null;
+    }
+    return (
+      <Dropdown.Item
+        key={val.value}
+        href="#/action-1"
+        onClick={() => setSelected(val)}
+      >
+        {val.label}
+      </Dropdown.Item>
+    );
+  });
   return (
     <div>
       <Dropdown>
         <Dropdown.Toggle variant="success" id="dropdown-basic">
-          Dropdown Button
+          {selected.label}
         </Dropdown.Toggle>
 
-        <Dropdown.Menu>
-          <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-          <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-          <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-        </Dropdown.Menu>
+        <Dropdown.Menu>{renderedItem}</Dropdown.Menu>
       </Dropdown>
     </div>
   );
