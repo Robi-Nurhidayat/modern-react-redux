@@ -1,0 +1,4 @@
+input:focus {
+  outline: 1px solid lightblue;
+  border-radius: 4px;
+}
