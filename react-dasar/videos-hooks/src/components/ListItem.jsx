@@ -1,9 +1,12 @@
 import React from "react";
 
-export default function ListItem({ video }) {
+export default function ListItem({ video, setSelectedVideo }) {
   return (
     <>
-      <div className="card mb-4 grid grid-cols-2 p-2 gap-x-2.5">
+      <div
+        className="card mb-4 grid grid-cols-2 p-2 gap-x-2.5"
+        onClick={() => setSelectedVideo(video)}
+      >
         <div className="card--images">
           <img
             className="w-5/5"

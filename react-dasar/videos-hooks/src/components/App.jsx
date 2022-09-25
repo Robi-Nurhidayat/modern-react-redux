@@ -6,6 +6,8 @@ import youtube from "./youtube";
 
 const App = () => {
   const [video, setVideo] = useState([]);
+  const [selectedVideo, setSelectedVideo] = useState(null);
+
   const onTermSubmit = async (term) => {
     const response = await youtube.get("/search", {
       params: {
@@ -16,6 +18,8 @@ const App = () => {
     const { items } = response.data;
     setVideo(items);
   };
+
+  console.log(selectedVideo);
 
   return (
     <div className="container mx-auto mt-5">
@@ -35,7 +39,7 @@ const App = () => {
           esse. Commodi, repellat!
         </div>
         <div>
-          <ListVideos videos={video} />
+          <ListVideos videos={video} setSelectedVideo={setSelectedVideo} />
         </div>
       </div>
     </div>
