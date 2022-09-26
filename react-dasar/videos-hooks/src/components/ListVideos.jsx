@@ -1,11 +1,9 @@
 import React from "react";
 import ListItem from "./ListItem";
 
-const ListVideos = ({ videos, setSelectedVideo }) => {
+const ListVideos = ({ videos, onVideoSelected }) => {
   const renderedVideo = videos.map((video, i) => {
-    return (
-      <ListItem setSelectedVideo={setSelectedVideo} key={i} video={video} />
-    );
+    return <ListItem onVideoSelected={onVideoSelected} key={i} video={video} />;
   });
   return <div>{renderedVideo}</div>;
 };

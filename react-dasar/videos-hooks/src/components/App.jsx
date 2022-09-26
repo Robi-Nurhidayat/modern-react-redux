@@ -19,12 +19,16 @@ const App = () => {
 
     const { items } = response.data;
     setVideo(items);
+    setSelectedVideo(items[0]);
   };
 
   useEffect(() => {
     onTermSubmit("Node js");
-    setSelectedVideo(video[0]);
   }, []);
+
+  const onVideoSelected = (video) => {
+    setSelectedVideo(video);
+  };
 
   return (
     <div className="container mx-auto mt-5">
@@ -34,7 +38,10 @@ const App = () => {
           <VideoDetail selectedVideo={selectedVideo} />
         </div>
         <div>
-          <ListVideos videos={video} setSelectedVideo={setSelectedVideo} />
+          <ListVideos
+            videos={video}
+            onVideoSelected={(video) => onVideoSelected(video)}
+          />
         </div>
       </div>
     </div>

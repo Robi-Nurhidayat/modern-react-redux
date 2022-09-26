@@ -6,8 +6,8 @@ export default function ({ onTermSubmit }) {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    setInputValue("");
     onTermSubmit(inputValue);
+    setInputValue("");
   };
   return (
     <div className="flex justify-center">
