@@ -1,3 +1,4 @@
+import { combineReducers } from "redux";
 const songReducers = () => {
   return [
     { title: "Aku dan Kamu", duration: "2:40" },
@@ -14,3 +15,8 @@ const selectedSongReducer = (selectedSong = null, action) => {
 
   return selectedSong;
 };
+
+export default combineReducers({
+  songs: songReducers,
+  selectedSong: selectedSongReducer,
+});
