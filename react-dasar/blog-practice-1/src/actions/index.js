@@ -7,7 +7,7 @@ export const fetchPostAndUsers = () => async (dispatch, getState) => {
   const userIds = _.uniq(_.map(getState.posts, "userId"));
   console.log(userIds);
 
-  userIds.forEach((id) => fetchUsers(id));
+  userIds.forEach((id) => dispatch(fetchUsers(id)));
 };
 
 export const fetchPost = () => async (dispatch) => {
