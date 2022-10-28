@@ -1,6 +1,6 @@
 import { useState } from "react";
 import reactLogo from "./assets/react.svg";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 function App() {
   return (
@@ -14,7 +14,12 @@ function App() {
 }
 
 const pageOne = () => {
-  return <div>Page One</div>;
+  return (
+    <div>
+      <p>Page One</p>
+      <Link to="/pagetwo">Page Two</Link>
+    </div>
+  );
 };
 
 const pageTwo = () => {
@@ -22,6 +27,7 @@ const pageTwo = () => {
     <div>
       <p>Page Two</p>
       <button>Click Me</button>
+      <Link to="/">Page One</Link>
     </div>
   );
 };
