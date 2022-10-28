@@ -1,35 +1,26 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import StreamList from "./components/streams/StreamList";
+import StreamShow from "./components/streams/StreamShow";
+import StreamCreate from "./components/streams/StreamCreate";
+import StreamDelete from "./components/streams/StreamDelete";
+import StreamEdit from "./components/streams/StreamEdit";
+import Header from "./components/Header";
 
 function App() {
   return (
-    <div>
+    <div className="ui container">
       <Router>
-        <Route path="/" exact component={pageOne} />
-        <Route path="/pagetwo" component={pageTwo} />
+        <div>
+          <Header />
+          <Route path="/" exact component={StreamList} />
+          <Route path="/streams/new" component={StreamCreate} />
+          <Route path="/streams/edit" component={StreamEdit} />
+          <Route path="/streams/delete" component={StreamDelete} />
+          <Route path="/streams/show" component={StreamShow} />
+        </div>
       </Router>
     </div>
   );
 }
-
-const pageOne = () => {
-  return (
-    <div>
-      <p>Page One</p>
-      <Link to="/pagetwo">Page Two</Link>
-    </div>
-  );
-};
-
-const pageTwo = () => {
-  return (
-    <div>
-      <p>Page Two</p>
-      <button>Click Me</button>
-      <Link to="/">Page One</Link>
-    </div>
-  );
-};
 
 export default App;
