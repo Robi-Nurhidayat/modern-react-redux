@@ -7,7 +7,9 @@ import UpdateStateObject from "./UpdateStateObject";
 const App = () => {
   return (
     <Wrapper>
-      <Button>Button 1</Button>
+      <Button primary rounded>
+        Button 1
+      </Button>
     </Wrapper>
   );
 };
