@@ -1,12 +1,14 @@
 import React from "react";
 import Card from "./Card";
+import Button from "./components/Button";
+import Wrapper from "./components/Wrapper";
+import UpdateStateObject from "./UpdateStateObject";
 
 const App = () => {
   return (
-    <div className="container">
-      <h1>Daftar Menu Warteg Barokah</h1>
-      <Card />
-    </div>
+    <Wrapper>
+      <Button>Button 1</Button>
+    </Wrapper>
   );
 };
 
