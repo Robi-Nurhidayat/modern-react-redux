@@ -1,36 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import FormAdd from "./FormAdd";
+import axios from "axios";
+import ListItem from "./ListItem";
 
 function TodoList() {
+  const [foods, setFoods] = useState([]);
+
+  useEffect(() => {
+    try {
+      const respose = async () => {
+        const { data } = await axios.get("http://localhost:5000/foods");
+
+        setFoods(data);
+      };
+
+      respose();
+    } catch (e) {
+      console.log(e);
+    }
+  }, []);
+
+  const renderItem = () => {
+    return foods.map((food) => {
+      return <ListItem food={food.nama} key={food.id} />;
+    });
+  };
   return (
     <>
       <FormAdd />
-      <ul>
-        <li className="todo-item">
-          <form className="form-edit">
-            <input
-              disabled
-              type="text"
-              className="input-no-border"
-              value={"Makan"}
-            />
-          </form>
-          <button className="btn btn__action btn__action-edit">Edit</button>
-          <button className="btn btn__action btn__action-delete">Hapus</button>
-        </li>
-        <li className="todo-item">
-          <form className="form-edit">
-            <input
-              disabled
-              type="text"
-              className="input-with-border"
-              value={"Makan"}
-            />
-          </form>
-          <button className="btn btn__action btn__action-edit">Edit</button>
-          <button className="btn btn__action btn__action-delete">Hapus</button>
-        </li>
-      </ul>
+      <ul>{renderItem()}</ul>
     </>
   );
 }

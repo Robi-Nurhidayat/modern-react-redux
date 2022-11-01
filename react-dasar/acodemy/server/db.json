@@ -1,0 +1,20 @@
+{
+  "foods": [
+    {
+      "id": 1,
+      "nama": "Sate"
+    },
+    {
+      "id": 2,
+      "nama": "Ayam Goreng"
+    },
+    {
+      "id": 3,
+      "nama": "Ikan Goreng"
+    },
+    {
+      "id": 4,
+      "nama": "Ikan Bakar"
+    }
+  ]
+}
