@@ -29,6 +29,7 @@ function TodoList() {
             food={food.nama}
             key={food.id}
             id={food.id}
+            updateFood={updateFood}
           />
         );
       })
@@ -44,6 +45,12 @@ function TodoList() {
 
   const deleteFood = (id) => {
     axios.delete(`http://localhost:5000/foods/${id}`);
+  };
+
+  // update data
+
+  const updateFood = (id, nama) => {
+    axios.put(`http://localhost:5000/foods/${id}`, nama);
   };
   return (
     <>
