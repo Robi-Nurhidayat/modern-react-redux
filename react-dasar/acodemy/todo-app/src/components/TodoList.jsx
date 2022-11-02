@@ -21,13 +21,19 @@ function TodoList() {
   }, []);
 
   const renderItem = () => {
-    return foods.map((food) => {
-      return <ListItem food={food.nama} key={food.id} />;
-    });
+    return foods
+      .map((food) => {
+        return <ListItem food={food.nama} key={food.id} />;
+      })
+      .reverse();
+  };
+
+  const addFood = (nama) => {
+    axios.post("http://localhost:5000/foods", nama);
   };
   return (
     <>
-      <FormAdd />
+      <FormAdd addFood={addFood} />
       <ul>{renderItem()}</ul>
     </>
   );
