@@ -23,13 +23,27 @@ function TodoList() {
   const renderItem = () => {
     return foods
       .map((food) => {
-        return <ListItem food={food.nama} key={food.id} />;
+        return (
+          <ListItem
+            deleteFood={deleteFood}
+            food={food.nama}
+            key={food.id}
+            id={food.id}
+          />
+        );
       })
       .reverse();
   };
 
+  // Add Todo
   const addFood = (nama) => {
     axios.post("http://localhost:5000/foods", nama);
+  };
+
+  // Delete Todo
+
+  const deleteFood = (id) => {
+    axios.delete(`http://localhost:5000/foods/${id}`);
   };
   return (
     <>

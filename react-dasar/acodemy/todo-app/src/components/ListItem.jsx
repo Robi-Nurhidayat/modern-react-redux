@@ -1,6 +1,6 @@
 import React from "react";
 
-function ListItem({ food }) {
+function ListItem({ food, id, deleteFood }) {
   return (
     <>
       <li className="todo-item">
@@ -13,7 +13,15 @@ function ListItem({ food }) {
           />
         </form>
         <button className="btn btn__action btn__action-edit">Edit</button>
-        <button className="btn btn__action btn__action-delete">Hapus</button>
+        <button
+          className="btn btn__action btn__action-delete"
+          onClick={() => {
+            deleteFood(id);
+            alert("berhasil");
+          }}
+        >
+          Hapus
+        </button>
       </li>
     </>
   );
