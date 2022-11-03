@@ -24,11 +24,17 @@ function App() {
     });
   };
 
+  // Add todo
+
+  const addTodo = (todo) => {
+    axios.post("http://localhost:5000/todos", todo);
+  };
+
   console.log(todos);
   return (
     <div className="container mx-auto p-10 items-center flex flex-col">
       <h1 className="mb-2.5 text-base font-bold">TODO APP</h1>
-      <Form />
+      <Form addTodo={addTodo} />
       <ul>{renderTodos()}</ul>
     </div>
   );
