@@ -6,6 +6,7 @@ const Form = ({ addTodo }) => {
   const onSubmit = (e) => {
     e.preventDefault();
 
+    if (!todo.todo) return;
     addTodo(todo);
 
     setTodo({ todo: "" });

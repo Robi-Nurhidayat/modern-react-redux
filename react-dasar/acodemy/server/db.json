@@ -1,20 +1,24 @@
 {
-  "foods": [
+  "todos": [
     {
       "id": 1,
-      "nama": "Sate"
+      "todo": "Makan"
     },
     {
-      "id": 2,
-      "nama": "Ayam Goreng"
+      "todo": "edit 1",
+      "id": 2
     },
     {
-      "id": 3,
-      "nama": "Ikan Goreng"
+      "todo": "tekah di edit",
+      "id": 3
     },
     {
-      "nama": "ubah 2",
+      "todo": "asdasd",
       "id": 4
+    },
+    {
+      "todo": "edit lagi",
+      "id": 5
     }
   ]
 }
