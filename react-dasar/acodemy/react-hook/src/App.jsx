@@ -1,5 +1,6 @@
 import React, { useReducer, useRef } from "react";
 import { useState } from "react";
+import City from "./components/Memo/City";
 
 const App = () => {
   // const [angka, setAngka] = useState(0);
@@ -34,6 +35,7 @@ const App = () => {
 
   const [counter, dispatch] = useReducer(reducer, 0);
 
+  const [city, setCity] = useState(["Jakarta", "Bandung", "Malang"]);
   return (
     <div style={{ textAlign: "center", maxWidth: "300px", margin: "auto" }}>
       <h1>{counter}</h1>
@@ -42,6 +44,8 @@ const App = () => {
         <button onClick={() => dispatch({ type: "DECREMENT" })}>Kurangi</button>
         <button onClick={() => dispatch({ type: "INCREMENT" })}>Tambah</button>
       </div>
+
+      <City city={city} />
     </div>
   );
 };
