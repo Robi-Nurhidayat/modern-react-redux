@@ -1,4 +1,5 @@
 import React, { useReducer, useRef } from "react";
+import { useMemo } from "react";
 import { useCallback } from "react";
 import { useState } from "react";
 import City from "./components/Memo/City";
@@ -38,12 +39,15 @@ const App = () => {
 
   const [city, setCity] = useState(["Jakarta", "Bandung", "Malang"]);
 
+  const newPangkat = useMemo(() => pangkat(counter), [counter]);
+
   const addCity = useCallback(() => {
     setCity([...city, "kota baru"]);
   }, [city]);
   return (
     <div style={{ textAlign: "center", maxWidth: "300px", margin: "auto" }}>
       <h1>{counter}</h1>
+      <h2>{newPangkat}</h2>
 
       <div style={{ display: "flex", justifyContent: "center", gap: "10px" }}>
         <button onClick={() => dispatch({ type: "DECREMENT" })}>Kurangi</button>
@@ -54,6 +58,12 @@ const App = () => {
       <City addCity={addCity} city={city} />
     </div>
   );
+};
+
+const pangkat = (count) => {
+  console.log("pangkat dijalankan");
+
+  return count * count;
 };
 
 export default App;
