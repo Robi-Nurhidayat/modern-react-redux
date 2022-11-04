@@ -1,13 +1,15 @@
 import React from "react";
 
-const City = ({ city }) => {
+const City = ({ city, addCity }) => {
   console.log("city di redner");
   return (
-    <>
-      {city.map((c) => {
-        return <div key={c}>{c}</div>;
+    <div style={{ textAlign: "center" }}>
+      {city.map((c, i) => {
+        return <div key={i}>{c}</div>;
       })}
-    </>
+
+      <button onClick={addCity}>Add</button>
+    </div>
   );
 };
 
