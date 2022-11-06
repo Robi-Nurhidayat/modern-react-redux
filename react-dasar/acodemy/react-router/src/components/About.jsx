@@ -1,7 +1,16 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const About = () => {
-  return <div>About</div>;
+  const navigator = useNavigate();
+  return (
+    <>
+      <div>About</div>
+      <button onClick={() => navigator("/contact", { replace: true })}>
+        Contact Me
+      </button>
+    </>
+  );
 };
 
 export default About;
