@@ -8,6 +8,8 @@ import "./App.css";
 import { Email } from "./components/Email";
 import Alamat from "./components/Alamat";
 import NotFound from "./components/NotFound";
+import Posts from "./components/posts/Posts";
+import DetailsPosts from "./components/posts/DetailsPosts";
 
 export default function App() {
   return (
@@ -22,6 +24,9 @@ export default function App() {
         </Route>
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />
+        <Route path="posts" element={<Posts />}>
+          <Route path=":postId" element={<DetailsPosts />} />
+        </Route>
       </Routes>
     </div>
   );
