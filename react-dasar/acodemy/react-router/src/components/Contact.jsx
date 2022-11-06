@@ -5,7 +5,7 @@ const Contact = () => {
   return (
     <>
       <div>Contact</div>
-      <button onClick={() => navigator(-2)}>Back</button>
+      <button onClick={() => navigator(-1)}>Back</button>
     </>
   );
 };
