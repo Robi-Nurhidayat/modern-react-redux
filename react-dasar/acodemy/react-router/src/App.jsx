@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar";
 import "./App.css";
 import { Email } from "./components/Email";
 import Alamat from "./components/Alamat";
+import NotFound from "./components/NotFound";
 
 export default function App() {
   return (
@@ -15,10 +16,12 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />}>
+          <Route index element={<Email />} />
           <Route path="email" element={<Email />} />
           <Route path="alamat" element={<Alamat />} />
         </Route>
         <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );
