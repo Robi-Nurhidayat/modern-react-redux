@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { fetchApi } from "../../utils/fetchApi";
 import Sidebar from "./Sidebar";
+import Videos from "./Videos";
 
 const Feed = () => {
   const [selectcategory, setSelectCategory] = useState("Coding");
+  const [videos, setVideos] = useState([]);
 
   useEffect(() => {
     fetchApi(`search?part=snippet,id&q=${selectcategory}`).then((data) => {
-      console.log(data);
+      setVideos(data.items);
     });
   }, [selectcategory]);
+
+  console.log(videos);
   return (
     <div className="flex flex-col sm:flex-row">
       <div className=" py-2 flex overflow-auto sm:flex-col sm:basis-3/12 sm:justify-start ">
@@ -18,7 +22,9 @@ const Feed = () => {
           setSelectCategory={setSelectCategory}
         />
       </div>
-      <div className="bg-gray-200 sm:basis-9/12">Videos</div>
+      <div className="bg-gray-200 sm:basis-9/12">
+        <Videos videos={videos} />
+      </div>
     </div>
   );
 };
