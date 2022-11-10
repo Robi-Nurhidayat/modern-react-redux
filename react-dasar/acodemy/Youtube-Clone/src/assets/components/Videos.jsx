@@ -4,12 +4,12 @@ import VideoCard from "./VideoCard";
 const Videos = ({ videos }) => {
   const renderCardVideos = () => {
     return videos.map((video, i) => {
-      return <VideoCard key={i} />;
+      return <VideoCard key={i} video={video} />;
     });
   };
   if (videos.length === 0) {
     return (
-      <div role="status">
+      <div role="status" className="h-screen flex justify-center items-center">
         <svg
           aria-hidden="true"
           className="mr-2 w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
@@ -30,7 +30,11 @@ const Videos = ({ videos }) => {
       </div>
     );
   } else {
-    return <div>{renderCardVideos()}</div>;
+    return (
+      <div className="grid grid-cols-1 p-4  place-items-center gap-6 sm:grid-cols-2 sm:place-items-start md:grid-cols-3">
+        {renderCardVideos()}
+      </div>
+    );
   }
 };
 

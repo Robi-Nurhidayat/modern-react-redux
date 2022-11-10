@@ -1,13 +1,16 @@
 import React from "react";
 import { categories } from "../../utils/utility";
 
-const Sidebar = ({ selectcategory, setSelectCategory }) => {
+const Sidebar = ({ selectcategory, setSelectCategory, setVideos }) => {
   return (
     <>
       {categories.map((category) => {
         return (
           <button
-            onClick={() => setSelectCategory(category.name)}
+            onClick={() => {
+              setSelectCategory(category.name);
+              setVideos([]);
+            }}
             key={category.name}
             className="flex items-center flex-row p-2 gap-0.5 sm:justify-start sm:px-4 "
             style={{

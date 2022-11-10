@@ -13,13 +13,13 @@ const Feed = () => {
     });
   }, [selectcategory]);
 
-  console.log(videos);
   return (
     <div className="flex flex-col sm:flex-row">
       <div className=" py-2 flex overflow-auto sm:flex-col sm:basis-3/12 sm:justify-start ">
         <Sidebar
           selectcategory={selectcategory}
           setSelectCategory={setSelectCategory}
+          setVideos={setVideos}
         />
       </div>
       <div className="bg-gray-200 sm:basis-9/12">
