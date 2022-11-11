@@ -7,9 +7,15 @@ const VideoCard = ({ video }) => {
   return (
     <div>
       <Link to={`/video/${id.videoId}`}>
-        <img src={snippet.thumbnails.high.url} alt="thumbnails" />
-        <h1 className="font-md">{snippet.title}</h1>
-        <p>{snippet.channelTitle}</p>
+        <img
+          src={snippet.thumbnails.high.url}
+          alt="thumbnails"
+          className="w-full"
+        />
+        <div className="p-2">
+          <h1 className="font-md">{snippet.title}</h1>
+          <p>{snippet.channelTitle}</p>
+        </div>
       </Link>
     </div>
   );

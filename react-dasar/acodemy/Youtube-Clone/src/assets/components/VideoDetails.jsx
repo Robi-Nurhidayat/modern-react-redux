@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchApi } from "../../utils/fetchApi";
 import ReactPlayer from "react-player";
+import VideoCard from "./VideoCard";
 
 const VideoDetails = () => {
   const { id } = useParams();
@@ -36,10 +37,15 @@ const VideoDetails = () => {
           <p className="mb-4">{videoDetails?.statistics.viewCount} views</p>
           <hr />
 
-          <p>{videoDetails?.snippet.description}</p>
+          <p className="mt-4 mb-4">{videoDetails?.snippet.description}</p>
+          <hr />
         </div>
       </div>
-      <div className="md:basis-3/12 lg:basis-4/12">Video Suggest</div>
+      <div className="md:basis-3/12 lg:basis-4/12 md:p-3">
+        {videoSuggest?.map((video, id) => {
+          return <VideoCard video={video} key={id} />;
+        })}
+      </div>
     </div>
   );
 };
