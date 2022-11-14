@@ -1,4 +1,6 @@
 const redux = require("redux");
+const applyMiddleware = redux.applyMiddleware;
+const middlewareThunk = require("redux-thunk");
 
 // action creator
 
@@ -62,4 +64,4 @@ const userReducer = (state = initialUsers, action) => {
 
 // store
 
-const store = redux.createStore(userReducer);
+const store = redux.createStore(userReducer, applyMiddleware(middlewareThunk));
