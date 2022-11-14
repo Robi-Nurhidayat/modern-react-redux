@@ -43,7 +43,7 @@ const fetchUser = () => {
 
     try {
       const { data } = await axios.get(
-        "https://jsonplaceholder.typicode.com/users"
+        "https://jsonplaceholdesr.typicode.com/users"
       );
       dispatch(fetchUserSuccess(data));
     } catch (e) {
