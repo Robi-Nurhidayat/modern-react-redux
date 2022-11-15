@@ -14,7 +14,7 @@ const Shoes = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    shoes: state.stock,
+    shoes: state.shoes.stock,
   };
 };
 
