@@ -7,7 +7,15 @@ const initialState = {
 const shoesReducer = createSlice({
   name: "shoes",
   initialState,
-  reducers: {},
+  reducers: {
+    buyShoes: (state) => {
+      state.stock = state.stock - 1;
+    },
+    addStock: (state, action) => {
+      state.stock += action.payload;
+    },
+  },
 });
 
+export const { buyShoes, addStock } = shoesReducer.actions;
 export default shoesReducer.reducer;
