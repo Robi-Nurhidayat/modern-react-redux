@@ -1,12 +1,14 @@
 import { nanoid } from "@reduxjs/toolkit";
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addPost } from "./postSlice";
 
 const AddPost = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const users = useSelector((state) => state.users);
+  console.log(users);
 
   const [title, setTitle] = useState("");
   const [userId, setUserId] = useState("");
@@ -23,7 +25,7 @@ const AddPost = () => {
             id: nanoid(),
             title: title,
             content: content,
-            userId: userId,
+            userId: Number(userId),
           })
         );
         navigate("/");
@@ -57,8 +59,13 @@ const AddPost = () => {
             className="border outline-none py-2 px-3 rounded"
           >
             <option>--Pilih Penulis--</option>
-            <option value={"1"}>Penulis 1</option>
-            <option value={"2"}>Penulis 2</option>
+            {users.map((user) => {
+              return (
+                <option key={user.id} value={user.id}>
+                  {user.username}
+                </option>
+              );
+            })}
           </select>
         </div>
 
