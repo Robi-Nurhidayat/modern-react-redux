@@ -13,7 +13,7 @@ const PostList = () => {
             <p className="text-sm text-gray-500">3 menit yang lalu</p>
             <p className="py-3">{post.content.substring(0, 10)}</p>
             <p className="text-sm text-gray-500">
-              Di tulis oleh <span className="underline">Kevin</span>
+              Di tulis oleh <span className="underline">{post.userId}</span>
             </p>
           </div>
         );
