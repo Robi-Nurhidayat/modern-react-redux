@@ -4,7 +4,7 @@ import Author from "../../components/Author";
 import TimeAgo from "../../components/TimeAgo";
 
 const PostList = () => {
-  const posts = useSelector((state) => state.post);
+  const posts = useSelector((state) => state.posts);
   console.log(posts);
   return (
     <div>
