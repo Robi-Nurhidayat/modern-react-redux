@@ -8,7 +8,6 @@ const AddPost = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const users = useSelector((state) => state.users);
-  console.log(users);
 
   const [title, setTitle] = useState("");
   const [userId, setUserId] = useState("");
@@ -26,6 +25,7 @@ const AddPost = () => {
             title: title,
             content: content,
             userId: Number(userId),
+            date: new Date().toISOString(),
           })
         );
         navigate("/");
