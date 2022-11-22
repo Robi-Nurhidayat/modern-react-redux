@@ -1,9 +1,18 @@
 import React from "react";
+import Navbar from "./components/Navbar";
+import { Routes, Route } from "react-router-dom";
+import AddPost from "./app/post/AddPost";
 
 const App = () => {
   return (
     <div>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
+      <Navbar />
+      <section className="max-w-lg p-9 mx-auto">
+        <Routes>
+          <Route path="/" exact />
+          <Route path="/add-post" element={<AddPost />} />
+        </Routes>
+      </section>
     </div>
   );
 };
