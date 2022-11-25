@@ -1,12 +1,35 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { addPost } from "./postSlice";
 
 const AddPost = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const users = useSelector((state) => state.users);
+
   const [title, setTitle] = useState("");
   const [userId, setUserId] = useState("");
   const [content, setContent] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (title && content && userId) {
+      dispatch(
+        addPost({
+          id: new Date().toLocaleDateString(),
+          title: title,
+          content: content,
+          userId: Number(userId),
+          time: new Date().toISOString(),
+        })
+      );
+
+      setTitle("");
+      setContent("");
+      setUserId("");
+      navigate("/");
+    }
   };
   return (
     <div className="border p-4 mx-auto">
@@ -32,8 +55,13 @@ const AddPost = () => {
             onChange={(e) => setUserId(e.target.value)}
           >
             <option>--Pilih Penulis--</option>
-            <option value={"1"}>Penulis 1</option>
-            <option value={"2"}>Penulis 2</option>
+            {users.map((user) => {
+              return (
+                <option key={user.id} value={user.id}>
+                  {user.name}
+                </option>
+              );
+            })}
           </select>
         </div>
         <div className="flex flex-col">

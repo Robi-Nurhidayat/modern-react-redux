@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import Author from "../../components/Author";
 
 const PostList = () => {
   const posts = useSelector((state) => state.posts);
@@ -13,7 +14,7 @@ const PostList = () => {
           <p className="text-gray-400 font-normal">12 menit yang lalu</p>
           <p>{post.content}</p>
           <p className="text-gray-500">
-            Ditulis oleh <span className="underline">{post.userId}</span>
+            Ditulis oleh <Author userId={post.userId} />
           </p>
         </div>
       );
