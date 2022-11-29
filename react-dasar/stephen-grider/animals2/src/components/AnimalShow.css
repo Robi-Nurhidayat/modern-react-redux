@@ -1,0 +1,16 @@
+.animal_container {
+  position: relative;
+  box-shadow: 0 4px 8px lightgray;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.animal {
+  width: 200px;
+}
+
+.heart {
+  position: absolute;
+  bottom: 10%;
+  right: 10%;
+}
