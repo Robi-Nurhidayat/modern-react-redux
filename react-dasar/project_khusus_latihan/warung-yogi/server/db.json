@@ -1,0 +1,22 @@
+{
+  "produk": [
+    {
+      "id": 1,
+      "namaProduk": "Clear",
+      "kategori": "Mandi",
+      "harga": 500
+    },
+    {
+      "id": 1,
+      "namaProduk": "Mie Sedap",
+      "kategori": "Makanan",
+      "harga": 3500
+    },
+    {
+      "id": 1,
+      "namaProduk": "Okky Jelly Drink",
+      "kategori": "Minuman",
+      "harga": 1000
+    }
+  ]
+}
