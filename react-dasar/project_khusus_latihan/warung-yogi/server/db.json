@@ -4,19 +4,22 @@
       "id": 1,
       "namaProduk": "Clear",
       "kategori": "Mandi",
-      "harga": 500
+      "harga": 500,
+      "deskripsi": "jdoasfonaofsaonfsainfsooooooooooooooooooooooooooooooooooooooooooooooooooo"
     },
     {
       "id": 1,
       "namaProduk": "Mie Sedap",
       "kategori": "Makanan",
-      "harga": 3500
+      "harga": 3500,
+      "deskripsi": "jdoasfonaofsaonfsainfsooooooooooooooooooooooooooooooooooooooooooooooooooo"
     },
     {
       "id": 1,
       "namaProduk": "Okky Jelly Drink",
       "kategori": "Minuman",
-      "harga": 1000
+      "harga": 1000,
+      "deskripsi": "jdoasfonaofsaonfsainfsooooooooooooooooooooooooooooooooooooooooooooooooooo"
     }
   ]
 }
