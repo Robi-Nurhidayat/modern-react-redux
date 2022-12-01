@@ -6,7 +6,7 @@ const SearchBar = ({ onSubmit }) => {
     e.preventDefault();
 
     console.log(term);
-    onSubmit("cars");
+    onSubmit(term);
   };
   return (
     <div>
