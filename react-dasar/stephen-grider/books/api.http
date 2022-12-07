@@ -1,0 +1,22 @@
+GET http://localhost:4001/books HTTP/1.1
+Content-Type: application/json
+
+###
+POST http://localhost:4001/books HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "Mancing mania"
+}
+
+###
+PUT http://localhost:4001/books/4 HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "Mancing Mania Mantap"
+}
+
+###
+DELETE http://localhost:4001/books/2 HTTP/1.1
+Content-Type: application/json
