@@ -3,7 +3,7 @@ import axios from "axios";
 import Table from "react-bootstrap/Table";
 
 import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const UsersList = () => {
   const [users, setUsers] = useState([]);
@@ -17,6 +17,10 @@ const UsersList = () => {
     setUsers(response.data);
   };
 
+  const deleteUser = async (id) => {
+    await axios.delete(`http://localhost:5000/users/${id}`);
+    getAllUsers();
+  };
   const renderedAllUsers = users.map((user, index) => {
     return (
       <tr key={user.id}>
@@ -25,8 +29,12 @@ const UsersList = () => {
         <td>{user.email}</td>
         <td>{user.gender}</td>
         <td style={{ display: "flex", gap: "5px" }}>
-          <Button variant="primary">Edit</Button>
-          <Button variant="danger">Delete</Button>
+          <Link to={`/edit/user/${user.id}`}>
+            <Button variant="primary">Edit</Button>
+          </Link>
+          <Button variant="danger" onClick={() => deleteUser(user.id)}>
+            Delete
+          </Button>
         </td>
       </tr>
     );

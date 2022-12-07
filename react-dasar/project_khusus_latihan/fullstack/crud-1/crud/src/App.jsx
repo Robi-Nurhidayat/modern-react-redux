@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import UsersList from "./assets/components/UsersList";
 import CreateUser from "./assets/components/CreateUser";
 import Container from "react-bootstrap/Container";
+import EditUser from "./assets/components/EditUser";
 
 const App = () => {
   return (
@@ -14,6 +15,8 @@ const App = () => {
         <Routes>
           <Route path="/" element={<UsersList />} />
           <Route path="/create/user" element={<CreateUser />} />
+          <Route path="/edit/user/:id" element={<EditUser />} />
+          <Route path="/users/:id" element={<EditUser />} />
         </Routes>
       </Container>
     </div>

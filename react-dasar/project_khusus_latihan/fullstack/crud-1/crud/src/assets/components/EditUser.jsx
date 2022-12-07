@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useNavigate } from "react-router-dom";
 
-const CreateUser = () => {
+const EditUser = () => {
   const navigate = useNavigate();
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
@@ -70,4 +70,4 @@ const CreateUser = () => {
   );
 };
 
-export default CreateUser;
+export default EditUser;
