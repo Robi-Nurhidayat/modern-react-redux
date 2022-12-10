@@ -1,32 +1,32 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const EditUser = () => {
   const navigate = useNavigate();
+  const { id } = useParams();
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [gender, setGender] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
-    createUser();
 
     setEmail("");
     setFullName("");
     setGender("");
   };
 
-  const createUser = async () => {
-    if (fullName && email && gender) {
-      await axios.post("http://localhost:5000/users", {
-        name: fullName,
-        email,
-        gender,
-      });
-      navigate("/");
-    }
+  useEffect(() => {
+    getUserById();
+  }, []);
+
+  const getUserById = async () => {
+    const { data } = await axios.get(`http://localhost:5000/users/${id}`);
+    setFullName(data.name);
+    setEmail(data.email);
+    setGender(data.gender);
   };
   return (
     <>
@@ -54,6 +54,7 @@ const EditUser = () => {
           <Form.Label>Gender</Form.Label>
           <Form.Select
             aria-label="Default select example"
+            value={gender}
             onChange={(e) => setGender(e.target.value)}
           >
             <option>Select Your Gender</option>
