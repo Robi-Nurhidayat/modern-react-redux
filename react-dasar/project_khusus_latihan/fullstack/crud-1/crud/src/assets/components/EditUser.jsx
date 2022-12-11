@@ -13,6 +13,7 @@ const EditUser = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    updateUser();
     setEmail("");
     setFullName("");
     setGender("");
@@ -21,6 +22,20 @@ const EditUser = () => {
   useEffect(() => {
     getUserById();
   }, []);
+
+  const updateUser = async () => {
+    try {
+      await axios.patch(`http://localhost:5000/users/${id}`, {
+        name: fullName,
+        email,
+        gender,
+      });
+
+      navigate("/");
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   const getUserById = async () => {
     const { data } = await axios.get(`http://localhost:5000/users/${id}`);
@@ -64,7 +79,7 @@ const EditUser = () => {
         </Form.Group>
 
         <Button variant="primary mt-3" type="submit">
-          Create
+          Update
         </Button>
       </Form>
     </>
