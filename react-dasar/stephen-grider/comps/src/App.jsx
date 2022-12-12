@@ -5,18 +5,19 @@ const App = () => {
   return (
     <div>
       <div>
-        <Button secondary primary>
-          Add
-        </Button>
+        <Button primary>Add</Button>
       </div>
       <div>
-        <Button>Send</Button>
+        <Button secondary>Send</Button>
       </div>
       <div>
-        <Button>Push</Button>
+        <Button success>Push</Button>
       </div>
       <div>
-        <Button>Get</Button>
+        <Button warning>Get</Button>
+      </div>
+      <div>
+        <Button danger>Get</Button>
       </div>
     </div>
   );
