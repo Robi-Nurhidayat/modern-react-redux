@@ -2,13 +2,24 @@ import React from "react";
 import Button from "./assets/components/Button";
 
 const App = () => {
+  const handleClick = () => {
+    console.log("handle click");
+  };
+
+  const mouseHover = () => {
+    console.log("Mouse Hover");
+  };
   return (
     <div>
       <div>
-        <Button primary>Add</Button>
+        <Button primary rounded outline className="mb-5" onClick={handleClick}>
+          Add
+        </Button>
       </div>
       <div>
-        <Button secondary>Send</Button>
+        <Button secondary onMouseEnter={handleClick}>
+          Send
+        </Button>
       </div>
       <div>
         <Button success>Push</Button>
