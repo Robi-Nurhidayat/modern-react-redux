@@ -1,26 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import Table from "react-bootstrap/Table";
 
 import Button from "react-bootstrap/Button";
 import { Link, useParams } from "react-router-dom";
+import UsersContext from "../../userContext/users";
 
 const UsersList = () => {
-  const [users, setUsers] = useState([]);
-
+  const { deleteUser, users, getAllUsers } = useContext(UsersContext);
   useEffect(() => {
     getAllUsers();
   }, []);
 
-  const getAllUsers = async () => {
-    const response = await axios.get("http://localhost:5000/users");
-    setUsers(response.data);
-  };
-
-  const deleteUser = async (id) => {
-    await axios.delete(`http://localhost:5000/users/${id}`);
-    getAllUsers();
-  };
   const renderedAllUsers = users.map((user, index) => {
     return (
       <tr key={user.id}>

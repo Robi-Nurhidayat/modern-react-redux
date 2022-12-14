@@ -1,10 +1,12 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useNavigate, useParams } from "react-router-dom";
+import UsersContext from "../../userContext/users";
 
 const EditUser = () => {
+  const { getUserById, updateUser } = useContext(UsersContext);
   const navigate = useNavigate();
   const { id } = useParams();
   const [fullName, setFullName] = useState("");
@@ -13,36 +15,18 @@ const EditUser = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    updateUser();
+    updateUser(id, fullName, email, gender);
+    navigate("/");
+
     setEmail("");
     setFullName("");
     setGender("");
   };
 
   useEffect(() => {
-    getUserById();
+    getUserById(id, setFullName, setEmail, setGender);
   }, []);
 
-  const updateUser = async () => {
-    try {
-      await axios.patch(`http://localhost:5000/users/${id}`, {
-        name: fullName,
-        email,
-        gender,
-      });
-
-      navigate("/");
-    } catch (e) {
-      console.log(e);
-    }
-  };
-
-  const getUserById = async () => {
-    const { data } = await axios.get(`http://localhost:5000/users/${id}`);
-    setFullName(data.name);
-    setEmail(data.email);
-    setGender(data.gender);
-  };
   return (
     <>
       <Form onSubmit={handleSubmit}>

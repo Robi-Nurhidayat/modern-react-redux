@@ -1,33 +1,28 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useNavigate } from "react-router-dom";
+import UsersContext from "../../userContext/users";
 
 const CreateUser = () => {
+  const { createUser } = useContext(UsersContext);
   const navigate = useNavigate();
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [gender, setGender] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
-    createUser();
+    if (fullName && email && gender) {
+      createUser(fullName, email, gender);
+      navigate("/");
+    }
 
     setEmail("");
     setFullName("");
     setGender("");
   };
 
-  const createUser = async () => {
-    if (fullName && email && gender) {
-      await axios.post("http://localhost:5000/users", {
-        name: fullName,
-        email,
-        gender,
-      });
-      navigate("/");
-    }
-  };
   return (
     <>
       <Form onSubmit={handleSubmit}>
