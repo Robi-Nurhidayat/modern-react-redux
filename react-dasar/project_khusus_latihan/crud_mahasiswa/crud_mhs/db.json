@@ -1,0 +1,36 @@
+{
+  "mahasiswa": [
+    {
+      "nim": "10118252",
+      "nama": "Robi Nurhidayat",
+      "kelas": "IF-6",
+      "no_hp": "085793387662"
+    },
+    {
+      "nim": "10118253",
+      "nama": "Ramadhani",
+      "kelas": "IF-6",
+      "no_hp": "085793387664"
+    },
+    {
+      "nim": "10118254",
+      "nama": "Syarif",
+      "kelas": "IF-6",
+      "no_hp": "085793387962"
+    }
+  ],
+  "matakuliah": [
+    {
+      "kodeMk": "ALGO1",
+      "namaMk": "Algoritma"
+    },
+    {
+      "kodeMk": "Web1",
+      "namaMk": "Pemrograman Web Dasar"
+    },
+    {
+      "kodeMk": "JK1",
+      "namaMk": "Jaringan dan Komputer"
+    }
+  ]
+}
