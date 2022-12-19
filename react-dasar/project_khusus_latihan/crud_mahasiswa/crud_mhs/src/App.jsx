@@ -1,6 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
+import MahasiswaCreate from "./components/mahasiswa/MahasiswaCreate";
 import MahasiswaEdit from "./components/mahasiswa/MahasiswaEdit";
 
 import Sidebar from "./components/Sidebar";
@@ -18,6 +19,7 @@ const App = () => {
           <Route path="/dashboard" element={<DashboardPage />} />
           {/* mahasiswa */}
           <Route path="/mahasiswa" element={<MahasiswaPage />} />
+          <Route path="/mahasiswa/tambah" element={<MahasiswaCreate />} />
           <Route path="/mahasiswa/:nim" element={<MahasiswaEdit />} />
           {/* end of mahasiswa */}
           <Route path="/dashboard" element={<DashboardPage />} />

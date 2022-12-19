@@ -36,6 +36,14 @@ const MahasiswaComponent = () => {
     <div className="flex justify-center">
       <div>
         <h1>Data Mahasiswa</h1>
+        <div className="my-3">
+          <Link
+            to={"/mahasiswa/tambah"}
+            className="py-2 px-3 bg-blue-400 rounded text-white text-md hover:bg-blue-500"
+          >
+            Tambah Data
+          </Link>
+        </div>
         <table className={style.tableStyle}>
           <thead>
             <tr className={style.tableStyle}>
