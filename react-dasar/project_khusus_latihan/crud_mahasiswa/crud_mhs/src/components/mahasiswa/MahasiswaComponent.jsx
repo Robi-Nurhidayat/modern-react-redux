@@ -19,7 +19,7 @@ const MahasiswaComponent = () => {
         <td className={style.tableStyle}>{mhs.no_hp}</td>
         <td className={`${style.tableStyle} p-3 flex gap-1`}>
           <Link
-            to={`/mahasiswa/${mhs.nim}`}
+            to={`/mahasiswa/edit/${mhs.id}`}
             className="py-1 px-2 rounded text-white bg-green-500"
           >
             Edit

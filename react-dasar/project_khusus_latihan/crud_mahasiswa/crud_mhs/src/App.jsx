@@ -20,7 +20,7 @@ const App = () => {
           {/* mahasiswa */}
           <Route path="/mahasiswa" element={<MahasiswaPage />} />
           <Route path="/mahasiswa/tambah" element={<MahasiswaCreate />} />
-          <Route path="/mahasiswa/:nim" element={<MahasiswaEdit />} />
+          <Route path="/mahasiswa/edit/:id" element={<MahasiswaEdit />} />
           {/* end of mahasiswa */}
           <Route path="/dashboard" element={<DashboardPage />} />
         </Routes>

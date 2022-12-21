@@ -1,7 +1,77 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 const MahasiswaEdit = () => {
-  return <div>MahasiswaEdit</div>;
+  const { id } = useParams();
+  const [nim, setNim] = useState("");
+  const [nama, setNama] = useState("");
+  const [kelas, setKelas] = useState("");
+  const [noHp, setNoHp] = useState("");
+
+  useEffect(() => {
+    getMahasiswaById(id);
+  }, []);
+  const getMahasiswaById = async (id) => {
+    const { data } = await axios.get(`http://localhost:4000/mahasiswa/${id}`);
+    setNim(data.nim);
+    setNama(data.nama);
+    setKelas(data.kelas);
+    setNoHp(data.no_hp);
+  };
+  return (
+    <div>
+      <h1 className="text-2xl mb-6 font-bold">FORM EDIT DATA</h1>
+      <form className="w-80 flex flex-col gap-3 ">
+        <div className="flex flex-col justify-center gap-1">
+          <label className="text-xl">NIM</label>
+          <input
+            type={"text"}
+            className="border py-1 px-1.5 outline-none rounded"
+            value={nim}
+            onChange={(e) => setNim(e.target.value)}
+          />
+        </div>
+        <div className="flex flex-col justify-center gap-1">
+          <label className="text-xl">NAMA</label>
+          <input
+            type={"text"}
+            className="border py-1 px-1.5 outline-none rounded"
+            value={nama}
+            onChange={(e) => setNama(e.target.value)}
+          />
+        </div>
+        <div className="flex flex-col justify-center gap-1">
+          <label className="text-xl">KELAS</label>
+
+          <select
+            className="border py-1 px-1.5 outline-none rounded"
+            value={kelas}
+            onChange={(e) => setKelas(e.target.value)}
+          >
+            <option>----Pilih Kelas----</option>
+            <option value={"IF-6"}>IF-6</option>
+            <option value={"IF-7"}>IF-7</option>
+          </select>
+        </div>
+        <div className="flex flex-col justify-center gap-1">
+          <label className="text-xl">NO HANDPHONE</label>
+          <input
+            type={"text"}
+            className="border py-1 px-1.5 outline-none rounded"
+            value={noHp}
+            onChange={(e) => setNoHp(e.target.value)}
+          />
+        </div>
+        <button
+          className="px-3 py-2 bg-blue-500 rounded text-base text-white font-bold hover:bg-blue-600"
+          type="submit"
+        >
+          Update
+        </button>
+      </form>
+    </div>
+  );
 };
 
 export default MahasiswaEdit;
