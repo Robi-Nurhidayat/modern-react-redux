@@ -1,34 +1,48 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import ImageCard from "./components/ImageCard";
+import ImageSearch from "./components/ImageSearch";
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+  const [images, setImages] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [term, setTerm] = useState("");
 
+  const api_key = "17291291-0d998009e97b6614c5511e6ea";
+
+  useEffect(() => {
+    try {
+      const fetchData = async () => {
+        const { data } = await axios.get(
+          `https://pixabay.com/api/?key=${api_key}&q=${term}`
+        );
+
+        setIsLoading(false);
+
+        setImages(data.hits);
+      };
+
+      fetchData();
+    } catch (e) {
+      console.log(e);
+    }
+  }, [term]);
+
+  const renderImage = images.map((img) => {
+    return <ImageCard key={img.id} img={img} />;
+  });
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
-}
+    <div className="container mx-auto">
+      <ImageSearch setTerm={setTerm} />
 
-export default App
+      {!isLoading && images.length === 0 && <h1>Image Not Found</h1>}
+      {isLoading ? (
+        <h1>Loading ...</h1>
+      ) : (
+        <div className="grid grid-cols-3 gap-4">{renderImage}</div>
+      )}
+    </div>
+  );
+};
+
+export default App;
