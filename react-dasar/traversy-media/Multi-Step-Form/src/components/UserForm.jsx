@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import FormPersonalDetails from "./FormPersonalDetails";
 import FormUserDetails from "./FormUserDetails";
 
 const UserForm = () => {
@@ -29,12 +30,15 @@ const UserForm = () => {
     });
   };
 
-  const handleChange = (input) => (e) => {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
     setState({
-      [input]: e.target.value,
+      ...state,
+      [name]: value,
     });
   };
 
+  console.log(state.firstName);
   const { step } = state;
 
   const { firstName, lastName, email, occupation, city, bio } = state;
@@ -51,7 +55,7 @@ const UserForm = () => {
         />
       );
     case 2:
-      return <h1>FormPersonalDetails</h1>;
+      return <FormPersonalDetails firstName={values.firstName} />;
     case 3:
       return <h1>Confirm </h1>;
     case 4:
