@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import Confirm from "./Confirm";
 import FormPersonalDetails from "./FormPersonalDetails";
 import FormUserDetails from "./FormUserDetails";
 
@@ -55,9 +56,16 @@ const UserForm = () => {
         />
       );
     case 2:
-      return <FormPersonalDetails firstName={values.firstName} />;
+      return (
+        <FormPersonalDetails
+          nextStep={nextStep}
+          handleChange={handleChange}
+          values={values}
+          prevStep={prevStep}
+        />
+      );
     case 3:
-      return <h1>Confirm </h1>;
+      return <Confirm values={values} prevStep={prevStep} />;
     case 4:
       return <h1>Succees</h1>;
   }
