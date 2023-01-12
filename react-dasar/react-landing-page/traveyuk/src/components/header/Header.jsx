@@ -1,11 +1,14 @@
 import React from "react";
+import "./Header.css";
 
 const Header = () => {
   return (
-    <header className="w-full">
-      <div className=" px-16 py-9 border flex justify-between items-center">
+    <header className="header w-full">
+      <div className="bg-header"></div>
+      <div className="relative px-16 py-9 border flex justify-between items-center">
+        <div className="nav-bg"></div>
         <div>
-          <span className="text-4xl">Travyuk</span>
+          <span className="text-4xl text-white font-bold">Travyuk</span>
         </div>
 
         <nav>
@@ -23,6 +26,10 @@ const Header = () => {
             Sign Up
           </button>
         </div>
+      </div>
+
+      <div className="hero-text-continer flex justify-center font-semibold text-2xl">
+        <p>life is too short for a wide and beautiful world</p>
       </div>
     </header>
   );
