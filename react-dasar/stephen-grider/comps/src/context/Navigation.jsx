@@ -16,9 +16,18 @@ function NavigationProvider({ children }) {
       window.removeEventListener("popstate", handle);
     };
   }, []);
+
+  const navigate = (to) => {
+    window.history.pushState({}, "", to);
+    setCurrentpath(to);
+  };
   return (
-    <NavigationContext.Provider value={{}}>
-      {currentPath}
+    <NavigationContext.Provider value={{ navigate, currentPath }}>
+      {/* <div>
+        <button onClick={() => navigate("/accordion")}>Go to accordion</button>
+        <button onClick={() => navigate("/dropdown")}>Go to dropdown</button>
+      </div>
+      {currentPath} */}
       {children}
     </NavigationContext.Provider>
   );

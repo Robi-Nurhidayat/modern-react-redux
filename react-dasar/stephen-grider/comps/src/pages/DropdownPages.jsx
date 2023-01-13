@@ -27,11 +27,6 @@ const DropdownPages = () => {
         onChange={handleSelection}
         value={selection}
       />
-      <Dropdown
-        options={options}
-        onChange={handleSelection}
-        value={selection}
-      />
     </div>
   );
 };
