@@ -1,8 +1,12 @@
 import React, { useState } from "react";
+import Confirm from "./Confirm";
 import FormStepOne from "./FormStepOne";
+import FormStepTwo from "./FormStepTwo";
+import Success from "./Success";
 
 function FormUser() {
   const [userData, setUserData] = useState({
+    step: 1,
     namaDepan: "",
     namaBelakang: "",
     email: "",
@@ -11,6 +15,16 @@ function FormUser() {
     keterangan: "",
   });
 
+  const prevStep = () => {
+    const { step } = userData;
+
+    setUserData({ ...userData, step: step - 1 });
+  };
+  const nextStep = () => {
+    const { step } = userData;
+
+    setUserData({ ...userData, step: step + 1 });
+  };
   const handleChange = (e) => {
     const { name, value } = e.target;
     const newDataUser = {
@@ -19,14 +33,41 @@ function FormUser() {
     };
 
     setUserData(newDataUser);
+    // setUserData({
+    //   ...userData,
+    //   [input]: e.target.value,
+    // });
   };
 
-  console.log(userData);
-  return (
-    <div>
-      <FormStepOne userData={userData} handleChange={handleChange} />
-    </div>
-  );
+  switch (userData.step) {
+    case 1:
+      return (
+        <FormStepOne
+          nextStep={nextStep}
+          userData={userData}
+          handleChange={handleChange}
+        />
+      );
+    case 2:
+      return (
+        <FormStepTwo
+          userData={userData}
+          handleChange={handleChange}
+          prevStep={prevStep}
+        />
+      );
+    case 3:
+      return <Confirm />;
+    case 4:
+      return <Success />;
+    default:
+      console.log("nothing");
+  }
+  // return (
+  //   <div>
+  //     <FormStepOne userData={userData} handleChange={handleChange} />
+  //   </div>
+  // );
 }
 
 export default FormUser;
