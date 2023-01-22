@@ -33,10 +33,6 @@ function FormUser() {
     };
 
     setUserData(newDataUser);
-    // setUserData({
-    //   ...userData,
-    //   [input]: e.target.value,
-    // });
   };
 
   switch (userData.step) {
@@ -54,10 +50,13 @@ function FormUser() {
           userData={userData}
           handleChange={handleChange}
           prevStep={prevStep}
+          nextStep={nextStep}
         />
       );
     case 3:
-      return <Confirm />;
+      return (
+        <Confirm userData={userData} prevStep={prevStep} nextStep={nextStep} />
+      );
     case 4:
       return <Success />;
     default:

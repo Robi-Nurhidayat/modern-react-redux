@@ -35,12 +35,23 @@ function FormStepOne({ userData, handleChange, nextStep }) {
         />
       </div>
 
+      <div className="mb-3">
+        <label className="form-label">Email</label>
+        <input
+          type="email"
+          className="form-control"
+          name="email"
+          value={userData.email}
+          onChange={handleChange}
+        />
+      </div>
+
       <button
         onClick={() => nextStep()}
         type="submit"
         className="btn btn-primary"
       >
-        Submit
+        Next
       </button>
     </div>
   );
