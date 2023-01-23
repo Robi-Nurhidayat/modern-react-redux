@@ -5,6 +5,8 @@ import Sidebar from "./components/Sidebar";
 import AccordionPages from "./pages/AccordionPages";
 import DropdownPages from "./pages/DropdownPages";
 import ButtonPages from "./pages/ButtonPages";
+import Modalpages from "./pages/Modalpages";
+import TablePages from "./pages/TablePages";
 
 const App = () => {
   return (
@@ -20,6 +22,12 @@ const App = () => {
         </Route>
         <Route path={"/buttons"}>
           <ButtonPages />
+        </Route>
+        <Route path={"/modal"}>
+          <Modalpages />
+        </Route>
+        <Route path={"/table"}>
+          <TablePages />
         </Route>
       </div>
     </div>
