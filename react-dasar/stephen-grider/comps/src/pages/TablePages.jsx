@@ -9,9 +9,18 @@ const TablePages = () => {
     { name: "Semangka", color: "bg-red-500", score: 1 },
     { name: "Kelapa", color: "bg-green-700", score: 4 },
   ];
+
+  const config = [
+    { label: "Name", render: (fruit) => fruit.name },
+    {
+      label: "Color",
+      render: (fruit) => <div className={`p-3 ${fruit.color} m-3`}></div>,
+    },
+    { label: "Score", render: (fruit) => fruit.score },
+  ];
   return (
     <div>
-      <Table data={data} />
+      <Table data={data} config={config} />
     </div>
   );
 };
