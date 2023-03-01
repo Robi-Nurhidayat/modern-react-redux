@@ -27,7 +27,9 @@ const Navbar = () => {
         </li>
       </ul>
       <div className="text-3xl relative">
-        <FaShoppingCart />
+        <Link to={"/carts"}>
+          <FaShoppingCart />
+        </Link>
         <span className="absolute -right-4 -top-3 z-10">
           {carts.carts.length}
         </span>

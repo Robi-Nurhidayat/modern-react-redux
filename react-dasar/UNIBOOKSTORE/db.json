@@ -63,37 +63,9 @@
   ],
   "carts": [
     {
+      "name": "Milk Tea",
+      "price": 5000,
       "id": 1
-    },
-    {
-      "data": {
-        "id": 2,
-        "name": "Choco Tea",
-        "qty": 50,
-        "price": 6000,
-        "description": "this choco tea created by mixing sugar and milk and choco"
-      },
-      "id": 2
-    },
-    {
-      "data": {
-        "id": 3,
-        "name": "Strawberry Tea",
-        "qty": 60,
-        "price": 6000,
-        "description": "this Strawberry tea created by mixing sugar and milk and choco"
-      },
-      "id": 3
-    },
-    {
-      "data": {
-        "id": 4,
-        "name": "Lemon Tea",
-        "qty": 10,
-        "price": 10000,
-        "description": "this Lemon tea created by mixing sugar and milk and choco"
-      },
-      "id": 4
     }
   ]
 }
