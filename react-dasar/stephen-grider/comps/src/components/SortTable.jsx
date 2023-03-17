@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Table from "./Table";
 
 function SortTable(props) {
-  const { config } = props;
+  const { config, data } = props;
   const [sortOrder, setSortOrder] = useState(null);
   const [sortBy, setSortBy] = useState(null);
 
@@ -32,10 +32,34 @@ function SortTable(props) {
       ),
     };
   });
+
+  // hanya sort data jika sortBy dan sortOrderBy tidak null
+  // buat salinan data dari prop
+  // temukan sortValue fungsi yang benar
+
+  let sortedData = data;
+  if (sortBy && sortOrder) {
+    // temukan nilai data yang sesuai dengan sortby apa -> misal by name atau score sesuai kondisi kode bagian atas
+
+    const { sortValue } = config.find((column) => column.label === sortBy);
+
+    sortedData = [...data].sort((a, b) => {
+      const valueA = sortValue(a);
+      const valueB = sortValue(b);
+
+      const reverseOrder = sortOrder === "asc" ? 1 : -1;
+
+      if (typeof valueA === "string") {
+        return valueA.localeCompare(valueB) * reverseOrder;
+      } else {
+        return (valueA - valueB) * reverseOrder;
+      }
+    });
+  }
   return (
     <div>
       {sortOrder} - {sortBy}
-      <Table {...props} config={updatedConfig} />
+      <Table {...props} data={sortedData} config={updatedConfig} />
     </div>
   );
 }
