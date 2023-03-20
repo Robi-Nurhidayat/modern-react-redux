@@ -3,7 +3,7 @@ import React, { Fragment } from "react";
 const Table = ({ data, config }) => {
   const renderHeader = config.map((column) => {
     if (column.header) {
-      return <Fragment>{column.header()}</Fragment>;
+      return <Fragment key={column.label}>{column.header()}</Fragment>;
     }
     return <th className="border py-1 px-3">{column.label}</th>;
   });
@@ -19,7 +19,7 @@ const Table = ({ data, config }) => {
       <h1>Data Nilai Siswa kelas XII B</h1>
       <table className="mt-3">
         <thead>
-          <tr>{renderHeader}</tr>
+          <tr className="border">{renderHeader}</tr>
         </thead>
         <tbody>{renderColumns}</tbody>
       </table>
