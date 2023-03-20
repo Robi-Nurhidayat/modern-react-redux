@@ -43,10 +43,29 @@ const TableSorted = (props) => {
       },
     };
   });
+
+  let updatedData = data;
+
+  if (sortBy && orderBy) {
+    const { sortValue } = config.find((col) => col.label === sortBy);
+
+    updatedData = [...data].sort((a, b) => {
+      const valueA = sortValue(a);
+      const valueB = sortValue(b);
+
+      const sortedValue = orderBy === "asc" ? 1 : -1;
+
+      if (typeof valueA === "string") {
+        return valueA.localeCompare(valueB) * sortedValue;
+      } else {
+        return (valueA - valueB) * sortedValue;
+      }
+    });
+  }
   return (
     <div>
       {sortBy} - {orderBy}
-      <Table {...props} config={updatedConfig} />
+      <Table {...props} config={updatedConfig} data={updatedData} />
     </div>
   );
 };
