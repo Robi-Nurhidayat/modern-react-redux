@@ -6,21 +6,21 @@ const INCREMENT_COUNT = "increment";
 const VALUE_TO_ADD = "value_to_add";
 
 function reducer(state, action) {
-  if (action.type === INCREMENT_COUNT) {
-    return {
-      ...state,
-      count: state.count + 1,
-    };
-  }
+  switch (action.type) {
+    case INCREMENT_COUNT:
+      return {
+        ...state,
+        count: state.count + 1,
+      };
+    case VALUE_TO_ADD:
+      return {
+        ...state,
+        valueToAdd: action.payload,
+      };
 
-  if (action.type === VALUE_TO_ADD) {
-    return {
-      ...state,
-      valueToAdd: action.payload,
-    };
+    default:
+      return state;
   }
-
-  return state;
 }
 
 function CounterPage({ initialCount }) {
