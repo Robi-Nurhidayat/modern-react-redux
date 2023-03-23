@@ -3,7 +3,9 @@ import Button from "../components/Button";
 import Panel from "../components/Panel";
 
 const INCREMENT_COUNT = "increment";
+const DECREMENT_COUNT = "decrement";
 const VALUE_TO_ADD = "value_to_add";
+const ADD_A_LOT = "add_a_lot";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -12,10 +14,22 @@ function reducer(state, action) {
         ...state,
         count: state.count + 1,
       };
+    case DECREMENT_COUNT:
+      return {
+        ...state,
+        count: state.count - 1,
+      };
     case VALUE_TO_ADD:
       return {
         ...state,
         valueToAdd: action.payload,
+      };
+
+    case ADD_A_LOT:
+      return {
+        ...state,
+        count: state.count + state.valueToAdd,
+        valueToAdd: 0,
       };
 
     default:
@@ -40,7 +54,9 @@ function CounterPage({ initialCount }) {
   };
 
   function decrement() {
-    // setCount(count - 1);
+    dispatch({
+      type: DECREMENT_COUNT,
+    });
   }
 
   function handleChange(e) {
@@ -57,6 +73,9 @@ function CounterPage({ initialCount }) {
   function handleSubmit(event) {
     event.preventDefault();
 
+    dispatch({
+      type: ADD_A_LOT,
+    });
     // setCount(count + valueToAdd);
     // setValueToAdd(0);
   }
