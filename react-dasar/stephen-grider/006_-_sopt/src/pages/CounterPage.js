@@ -1,14 +1,26 @@
 import { useState, useReducer } from "react";
 import Button from "../components/Button";
 import Panel from "../components/Panel";
-// +
+
+const INCREMENT_COUNT = "increment";
+const VALUE_TO_ADD = "value_to_add";
 
 function reducer(state, action) {
-  //
-  return {
-    ...state,
-    count: state.count + 1,
-  };
+  if (action.type === INCREMENT_COUNT) {
+    return {
+      ...state,
+      count: state.count + 1,
+    };
+  }
+
+  if (action.type === VALUE_TO_ADD) {
+    return {
+      ...state,
+      valueToAdd: action.payload,
+    };
+  }
+
+  return state;
 }
 
 function CounterPage({ initialCount }) {
@@ -22,7 +34,9 @@ function CounterPage({ initialCount }) {
     valueToAdd: 0,
   });
   const increment = () => {
-    dispatch();
+    dispatch({
+      type: INCREMENT_COUNT,
+    });
   };
 
   function decrement() {
@@ -33,6 +47,11 @@ function CounterPage({ initialCount }) {
     const value = parseInt(e.target.value) || 0;
 
     // setValueToAdd(value);
+
+    dispatch({
+      type: VALUE_TO_ADD,
+      payload: value,
+    });
   }
 
   function handleSubmit(event) {
@@ -41,6 +60,8 @@ function CounterPage({ initialCount }) {
     // setCount(count + valueToAdd);
     // setValueToAdd(0);
   }
+
+  console.log(state.valueToAdd);
   return (
     <Panel className="m-3">
       <h1 className="text-lg">Count is {state.count}</h1>
