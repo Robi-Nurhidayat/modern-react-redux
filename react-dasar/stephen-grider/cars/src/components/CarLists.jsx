@@ -3,25 +3,16 @@ import { useDispatch, useSelector } from "react-redux";
 import { removeCar } from "../store/slice/carsSlice";
 
 function CarLists() {
-  // const cars = useSelector(({ cars: { data, searchTerm } }) => {
-  //   return data.filter((car) => {
-  //     return car.name.toLowerCase().includes(searchTerm.toLowerCase());
-  //   });
-  // });
-
-  const { data, searchTerm } = useSelector((state) => {
-    return {
-      data: state.cars.data,
-      searchTerm: state.cars.searchTerm,
-    };
-  });
-
-  let cars = data;
-  if (searchTerm) {
-    cars = data.filter((car) => {
+  const { cars, name } = useSelector(({ form, cars: { data, searchTerm } }) => {
+    const filteredCars = data.filter((car) => {
       return car.name.toLowerCase().includes(searchTerm.toLowerCase());
     });
-  }
+
+    return {
+      cars: filteredCars,
+      name: form.name,
+    };
+  });
 
   const dispatch = useDispatch();
 
@@ -29,8 +20,10 @@ function CarLists() {
     dispatch(removeCar(car.id));
   };
   const renderedCars = cars.map((car) => {
+    const bold = name && car.name.toLowerCase().includes(name.toLowerCase());
+
     return (
-      <div className="panel" key={car.id}>
+      <div className={`panel ${bold && "bold"}`} key={car.id}>
         <p>
           {car.name} - ${car.cost}
         </p>
