@@ -1,9 +1,10 @@
 import React from "react";
+import TablePage from "./pages/TablePage";
 
 const App = () => {
   return (
     <div>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
+      <TablePage />
     </div>
   );
 };

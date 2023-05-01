@@ -9,7 +9,7 @@ const FormPersonalDetails = ({ nextStep, handleChange, values, prevStep }) => {
     prevStep();
   };
 
-  console.log(values.firstName);
+  console.log("dari form sebelum nya" + values.firstName);
   return (
     <div className="">
       <div className="bg-blue-500 h-10 flex justify-center items-center text-white text-xl">

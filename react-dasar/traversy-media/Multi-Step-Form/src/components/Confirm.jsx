@@ -1,6 +1,7 @@
 import React from "react";
 
 const Confirm = ({ values, prevStep }) => {
+  console.log(values);
   return (
     <div>
       <h1>CONFIRM YOUR DATA</h1>

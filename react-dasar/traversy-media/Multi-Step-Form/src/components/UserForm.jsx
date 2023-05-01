@@ -5,7 +5,7 @@ import FormPersonalDetails from "./FormPersonalDetails";
 import FormUserDetails from "./FormUserDetails";
 
 const UserForm = () => {
-  const [state, setState] = useState({
+  const [initialValue, setInitialValue] = useState({
     step: 1,
     firstName: "",
     lastName: "",
@@ -14,6 +14,8 @@ const UserForm = () => {
     city: "",
     bio: "",
   });
+
+  const [state, setState] = useState(initialValue);
 
   //   Proceed to Next Step
   const nextStep = () => {
@@ -31,36 +33,50 @@ const UserForm = () => {
     });
   };
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setState({
-      ...state,
-      [name]: value,
+  // const handleChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setInitialValue({
+  //     ...initialValue,
+  //     [name]: value,
+  //   });
+
+  //   setState(initialValue);
+  // };
+
+  const onSubmit = (firstName, lastName, email) => {
+    setInitialValue({
+      ...initialValue,
+      firstName: "gaber",
+      lastName,
+      email,
     });
+
+    setState(initialValue);
   };
 
-  console.log(state.firstName);
   const { step } = state;
 
-  const { firstName, lastName, email, occupation, city, bio } = state;
+  // const { firstName, lastName, email, occupation, city, bio } = state;
 
-  const values = { firstName, lastName, email, occupation, city, bio };
+  // const values = { firstName, lastName, email, occupation, city, bio };
+
+  console.log(state);
 
   switch (step) {
     case 1:
       return (
         <FormUserDetails
           nextStep={nextStep}
-          handleChange={handleChange}
-          values={values}
+          handleChange={onSubmit}
+          values={state}
         />
       );
     case 2:
       return (
         <FormPersonalDetails
           nextStep={nextStep}
-          handleChange={handleChange}
-          values={values}
+          handleChange={onSubmit}
+          values={state}
           prevStep={prevStep}
         />
       );

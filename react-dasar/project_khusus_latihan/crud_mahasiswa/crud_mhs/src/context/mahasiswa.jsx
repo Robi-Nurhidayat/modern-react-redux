@@ -26,6 +26,14 @@ function Provider({ children }) {
     navigate("/mahasiswa");
   };
 
+  const updateMahasiswa = async (id, nim, nama, kelas, no_hp) => {
+    const { data } = await axios.put(`http://localhost:4000/mahasiswa/${id}`, {
+      nim,
+      nama,
+      kelas,
+      no_hp,
+    });
+  };
   const valueToShare = {
     mahasiswa,
     getAllMahasiswa,
