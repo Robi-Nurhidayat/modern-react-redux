@@ -1,56 +1,8 @@
 {
   "users": [
     {
-      "name": "Jenifer",
-      "id": 2
-    },
-    {
-      "name": "Ramon",
-      "id": 3
-    },
-    {
-      "name": "Liza",
-      "id": 4
-    },
-    {
-      "name": "Madge",
-      "id": 5
-    },
-    {
-      "name": "Isaiah",
-      "id": 6
-    },
-    {
-      "name": "Pete",
-      "id": 7
-    },
-    {
-      "name": "Meghan",
-      "id": 8
-    },
-    {
-      "name": "Casey",
-      "id": 9
-    },
-    {
-      "name": "Carlee",
-      "id": 10
-    },
-    {
-      "name": "Damon",
-      "id": 11
-    },
-    {
-      "name": "Misty",
-      "id": 12
-    },
-    {
-      "name": "Maxwell",
-      "id": 13
-    },
-    {
-      "name": "Robyn",
-      "id": 14
+      "name": "Roberta",
+      "id": 1
     }
   ],
   "albums": [],
