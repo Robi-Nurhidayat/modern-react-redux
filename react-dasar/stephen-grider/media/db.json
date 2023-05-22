@@ -11,10 +11,36 @@
   ],
   "albums": [
     {
-      "id": 10,
-      "title": "Hiking trip",
-      "userId": 1
+      "userId": 2,
+      "title": "Tasty Rubber Chair",
+      "id": 1
+    },
+    {
+      "userId": 2,
+      "title": "Refined Soft Shoes",
+      "id": 2
+    },
+    {
+      "userId": 1,
+      "title": "Rustic Soft Chair",
+      "id": 3
+    },
+    {
+      "userId": 1,
+      "title": "Luxurious Metal Chips",
+      "id": 4
     }
   ],
-  "photos": []
+  "photos": [
+    {
+      "albumId": 3,
+      "url": "https://loremflickr.com/150/150/abstract?lock=74461",
+      "id": 1
+    },
+    {
+      "albumId": 3,
+      "url": "https://loremflickr.com/150/150/abstract?lock=40822",
+      "id": 2
+    }
+  ]
 }
